@@ -13,18 +13,30 @@ const Welcome = ((props) => {
 })
 
 const App = (() => {
-	const nameArray = ["chris", "axl", "grey"]
-	const
+	const nameArray = ["val","chris", "axl", "grey", "caro"]
+	const nameMapper = (() => 
+		nameArray.map((name, i)=>
+			<li key={i}> {name} </li>
+		)
+	);
+
+	const redbg = {
+		'backgroundColor': 'red',
+		'font-size': 20
+	};
+	
+	const changeHandler = ((event) => {
+		console.log(event.target.value)
+	})
 
 	return (
-		<div>
+		<div style={redbg}>
 			<Welcome fname="chris" lname="caro" />
 			<Welcome fname="val axl" lname="caro" />
 			<ul>
-				{nameArray.map((name, i)=>
-					<li key={i}> {name} </li>
-				)}
+				{nameMapper()}
 			</ul>
+			<input onChange={changeHandler} />
 		</div>
 	)
 });

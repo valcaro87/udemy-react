@@ -77,26 +77,39 @@
 	};
 
 	var App = function App() {
-		var nameArray = ["chris", "axl", "grey"];
+		var nameArray = ["val", "chris", "axl", "grey", "caro"];
+		var nameMapper = function nameMapper() {
+			return nameArray.map(function (name, i) {
+				return _react2.default.createElement(
+					'li',
+					{ key: i },
+					' ',
+					name,
+					' '
+				);
+			});
+		};
+
+		var redbg = {
+			'backgroundColor': 'red',
+			'font-size': 20
+		};
+
+		var changeHandler = function changeHandler(event) {
+			console.log(event.target.value);
+		};
 
 		return _react2.default.createElement(
 			'div',
-			null,
+			{ style: redbg },
 			_react2.default.createElement(Welcome, { fname: 'chris', lname: 'caro' }),
 			_react2.default.createElement(Welcome, { fname: 'val axl', lname: 'caro' }),
 			_react2.default.createElement(
 				'ul',
 				null,
-				nameArray.map(function (name, i) {
-					return _react2.default.createElement(
-						'li',
-						{ key: i },
-						' ',
-						name,
-						' '
-					);
-				})
-			)
+				nameMapper()
+			),
+			_react2.default.createElement('input', { onChange: changeHandler })
 		);
 	};
 
