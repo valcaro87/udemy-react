@@ -14,6 +14,7 @@ const Welcome = ((props) => {
 
 const App = (() => {
 	const nameArray = ["chris", "axl", "grey"]
+	const
 
 	return (
 		<div>
