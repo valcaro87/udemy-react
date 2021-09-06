@@ -17,26 +17,39 @@ const redbg = {
 	'font-size': 20
 };
 
-var App = React.createClass({
-	nameMapper: function () {
-		const nameArray = ["val", "chris", "axl", "grey", "caro"]
+class App extends React.Component {
+	nameMapper(nameArray) {
 		return nameArray.map((name, i) =>
 			<li key={i}> {name} </li>
 		)
-	},
-	render: function () {
+	}
+
+	render() {
+		const nameArray = ["val chris 1987", "axl2019!", "grey2012", "caro", "caro!"]
 		return (
 			<div style={redbg}>
 				<Welcome fname="chris" lname="caro" />
 				<Welcome fname="val axl" lname="caro" />
 				<ul>
-					{this.nameMapper()}
+					{this.nameMapper(nameArray)}
 				</ul>
 
 			</div>
 		)
 	}
-})
+}
+
+// var App = React.createClass({
+// 	nameMapper: function () {
+
+
+// 	},
+// 	render: function () {
+// 		return (
+
+// 		)
+// 	}
+// })
 
 // const App = (() => {
 
