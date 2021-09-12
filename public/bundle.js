@@ -76,9 +76,16 @@
 		);
 	};
 
-	var App = function App() {
-		var nameArray = ["val", "chris", "axl", "grey", "caro"];
-		var nameMapper = function nameMapper() {
+	var redbg = {
+		'backgroundColor': 'red',
+		'font-size': 20
+	};
+
+	var App = _react2.default.createClass({
+		displayName: 'App',
+
+		nameMapper: function nameMapper() {
+			var nameArray = ["val", "chris", "axl", "grey", "caro"];
 			return nameArray.map(function (name, i) {
 				return _react2.default.createElement(
 					'li',
@@ -88,30 +95,60 @@
 					' '
 				);
 			});
-		};
+		},
+		render: function render() {
+			return _react2.default.createElement(
+				'div',
+				{ style: redbg },
+				_react2.default.createElement(Welcome, { fname: 'chris', lname: 'caro' }),
+				_react2.default.createElement(Welcome, { fname: 'val axl', lname: 'caro' }),
+				_react2.default.createElement(
+					'ul',
+					null,
+					this.nameMapper()
+				)
+			);
+		}
+	});
 
-		var redbg = {
-			'backgroundColor': 'red',
-			'font-size': 20
-		};
+	// const App = (() => {
 
-		var changeHandler = function changeHandler(event) {
-			console.log(event.target.value);
-		};
+	// 	const nameMapper = (() =>
 
-		return _react2.default.createElement(
-			'div',
-			{ style: redbg },
-			_react2.default.createElement(Welcome, { fname: 'chris', lname: 'caro' }),
-			_react2.default.createElement(Welcome, { fname: 'val axl', lname: 'caro' }),
-			_react2.default.createElement(
-				'ul',
-				null,
-				nameMapper()
-			),
-			_react2.default.createElement('input', { onChange: changeHandler })
-		);
-	};
+	// 	);
+
+	// 	const redbg = {
+	// 		'backgroundColor': 'red',
+	// 		'font-size': 20
+	// 	};
+
+	// 	const changeHandler = ((event) => {
+	// 		console.log(event.target.value)
+	// 	})
+
+	// 	return (
+
+	// 	)
+	// });
+
+	// const MyApp = ((props) => {
+	// 	const element = (
+	// 		<div>
+	// 			<h1>Hello to the Virtual DOM</h1>
+	// 			<h3>Ive been renderred  {props} times</h3>
+	// 		</div>
+	// 	)
+	// 	ReactDOM.render(
+	// 		element,
+	// 		document.getElementById('app')
+	// 	)
+	// })
+
+	// var numTimes = 0
+	// setInterval(() => {
+	// 	numTimes += 1
+	// 	MyApp(numTimes)
+	// }, 1000)
 
 	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
 
