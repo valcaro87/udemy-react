@@ -9,7 +9,7 @@ export class NameList extends React.Component {
     }
 
     render() {
-        const nameArray = ["valx chris 1987", "axl2019!", "grey2012", "caro", "caro!"]
+        const nameArray = ["valx chris 1987", "axl2019!", "grey2012 (val christian grey caro)", "caro", "caro!", "val axl sy caro"]
         return (
             <div style={redbg}>
                 <Welcome fname="chris" lname="caro" />
