@@ -1,4 +1,5 @@
 import React from 'react';
+import Welcome from './Welcome';
 
 export class NameList extends React.Component {
 
@@ -9,11 +10,13 @@ export class NameList extends React.Component {
     }
 
     render() {
-        const nameArray = ["valx chris 1987", "axl2019!", "grey2012 (val christian grey caro)", "caro", "caro!", "val axl sy caro"]
+        const nameArray = ["valx chris", "axl2019!", "grey2012 (val christian grey caro)", "caro", "caro!", "val axl sy caro"]
+
         return (
             <div style={redbg}>
-                <Welcome fname="chris" lname="caro" />
-                <Welcome fname="val axl" lname="caro" />
+                <h3>i am number {this.props.number}</h3>
+                <Welcome fname="chris" lname="caro" number={this.props.number} />
+                <Welcome fname="val axl" lname="caro" number={this.props.number} />
                 <ul>
                     {this.nameMapper(nameArray)}
                 </ul>
@@ -22,16 +25,6 @@ export class NameList extends React.Component {
         )
     }
 }
-
-//const hello = <h3>im an h3 </h3>
-const Welcome = ((props) => {
-    return (
-        <div>
-            <h3> Welcome  {props.fname}</h3>
-            <h3> {props.lname}</h3>
-        </div>
-    )
-})
 
 const redbg = {
     'backgroundColor': 'red',
