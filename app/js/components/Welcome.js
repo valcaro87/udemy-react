@@ -13,6 +13,10 @@ export default class Welcome extends React.Component {
 }
 
 const lengthChecker = ((props, propName, component) => {
+    console.log('props: ' + props);
+    console.log('propName: ' + propName);
+    console.log('component: ' + component);
+
     if (props[propName]) {
         let val = props[propName]
         if (typeof val === 'string') {
