@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import Timer from './Timer';
 
 
 export default class Layout extends React.Component {
@@ -26,6 +27,8 @@ export default class Layout extends React.Component {
                     lorem ipsum
                 </p>
                 <Button changeName={this.changeName.bind(this)} fname={this.state.fname} />
+                <Timer />
+                <Timer />
             </div >
         )
 
