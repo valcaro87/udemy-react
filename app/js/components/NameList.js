@@ -10,13 +10,14 @@ export class NameList extends React.Component {
     }
 
     render() {
-        const nameArray = ["valx chris", "axl2019!", "grey2012 (val christian grey caro)", "caro", "caro!", "val axl sy caro"]
+        const nameArray = [1, "axl2019!", "grey2012 (val christian grey caro)", "caro", "caro!", "val axl sy caro"]
+        const elementz = <p>i am an element!</p>
 
         return (
             <div style={redbg}>
                 <h3>i am number {this.props.number}</h3>
-                <Welcome fname="chris" lname="caro" number={this.props.number} />
-                <Welcome fname="val axl" lname="caro" number={this.props.number} />
+                <Welcome fname="wala lang A" lname="caro" number={this.props.number} elementz={elementz} />
+                <Welcome fname="valchris" lname="caro" number={this.props.number} elementz={elementz} />
                 <ul>
                     {this.nameMapper(nameArray)}
                 </ul>
@@ -28,5 +29,5 @@ export class NameList extends React.Component {
 
 const redbg = {
     'backgroundColor': 'red',
-    'font-size': 20
+    'fontSize': 20
 };
