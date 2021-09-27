@@ -29,6 +29,7 @@ export default class Layout extends React.Component {
                 <Button changeName={this.changeName.bind(this)} fname={this.state.fname} />
                 <Timer />
                 <Timer />
+                <Timer />
             </div >
         )
 
