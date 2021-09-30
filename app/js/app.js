@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import { NameList } from './components/NameList';
 import Layout from './components/Layout';
+import names from '../../mock-data';
 
 
 
@@ -13,7 +14,7 @@ class App extends React.Component {
 			<div>
 				{/* <NameList number="1" />
 				<NameList number="2" /> */}
-				<Layout />
+				<Layout names={names} />
 			</div>
 
 		)
