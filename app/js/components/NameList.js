@@ -1,4 +1,6 @@
 import React from 'react';
+import NameRow from './NameList/NameRow';
+
 // import Welcome from './Welcome';
 
 // export class NameList extends React.Component {
@@ -111,7 +113,7 @@ export default class NameList extends React.Component {
 
                 Filter Names: <input type="text" onChange={this.filterNames} />
 
-                <ul>
+                {/* <ul>
                     {names.map((name) =>
                         <li key={name.id}>
                             <a href="#" onClick={this.handleClickName}>
@@ -119,7 +121,15 @@ export default class NameList extends React.Component {
                             </a>
                         </li>
                     )}
+                </ul> */}
+
+                <ul>
+                    {names.map((name) =>
+                        <NameRow key={name.id} name={name} handleClickName={this.handleClickName} />
+                    )}
                 </ul>
+
+
             </div>
 
 
