@@ -41,11 +41,13 @@ export default class NameList extends React.Component {
             event: 'no event detected'
         }
         this.handleClickName = this.handleClickName.bind(this);
+        this.filterNames = this.filterNames.bind(this);
     }
 
     componentWillMount() {
         this.setState({
-            names: this.props.names
+            names: this.props.names,
+            filterText: ''
         })
     }
 
@@ -55,32 +57,69 @@ export default class NameList extends React.Component {
         this.setState({
             // event: event.target.value
             event: event.target.text
+            //event: event.type
+        })
+    }
+
+    filterNames(event) {
+        // let newNames = this.state.names.filter((name) => {
+        //     let fullName = `${name.first_name} ${name.last_name}`
+        //     return fullName.toLowerCase().includes(event.target.value.toLowerCase())
+        // })
+
+        this.setState({
+            filterText: event.target.value
         })
     }
 
     render() {
         let { names } = this.state
+        let { filterText } = this.state;
+
+        if (filterText.length >= 3) {
+            names = names.filter((name) => {
+                let fullName = `${name.first_name} ${name.last_name}`
+                return fullName.toLowerCase().includes(event.target.value.toLowerCase())
+            })
+        }
+
+
         return (
             <div>
                 <h1>this is the namelist component</h1>
 
-                <h3> {this.state.event}</h3>
-                <input onChange={this.handleClickName} type="text" />
+                <p> Clicked Name: {this.state.event} </p>
+
+                <input
+                    onChange={this.handleClickName}
+                    onFocus={this.handleClickName}
+                    onBlur={this.handleClickName}
+                    onKeyPress={this.handleClickName}
+                    type="text"
+                />
 
                 <form onSubmit={this.handleClickName}>
                     <input type="text" />
                     <input type="submit" />
                 </form>
 
-                {names.map((name) =>
-                    <ul key={name.id}>
-                        <li>
+                <br />
+                <br />
+                <div>
+                    {/* {JSON.stringify(this.state, null)} */}
+                </div>
+
+                Filter Names: <input type="text" onChange={this.filterNames} />
+
+                <ul>
+                    {names.map((name) =>
+                        <li key={name.id}>
                             <a href="#" onClick={this.handleClickName}>
                                 {name.first_name} {name.last_name} - {name.gender} - {name.email}
                             </a>
                         </li>
-                    </ul>)
-                }
+                    )}
+                </ul>
             </div>
 
 
