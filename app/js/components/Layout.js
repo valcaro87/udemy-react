@@ -37,7 +37,7 @@ export default class Layout extends React.Component {
                 <Button changeName={this.changeName.bind(this)} fname={this.state.fname} />
                 {this.state.isTimerMounted ?
                     <div>
-                        <Timer />
+
                         <Timer />
                         <Timer />
                     </div>
@@ -48,6 +48,11 @@ export default class Layout extends React.Component {
 
                 <NameList names={this.props.names} />
 
+                <H1styler>
+                    klasjd klajsd klajdlkasjd
+                    <Timer />
+                    {/* {this.props.children} */}
+                </H1styler>
             </div >
         )
 
@@ -55,3 +60,11 @@ export default class Layout extends React.Component {
     }
 
 }
+
+const H1styler = (props) => {
+    const bluebackground = {
+        backgroundColor: "blue"
+    }
+    return <h1 style={bluebackground}>{props.children}</h1>
+}
+
