@@ -148,6 +148,12 @@ const names = [{
     "last_name": "McAdam",
     "email": "bmcadamo@github.com",
     "gender": "Non-binary"
+}, {
+    "id": 26,
+    "first_name": "Val",
+    "last_name": "Axl Grey",
+    "email": "valaxlgrey@github.com",
+    "gender": "M"
 }]
 
 export default names;

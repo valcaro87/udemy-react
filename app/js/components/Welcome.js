@@ -8,7 +8,6 @@ export default class Welcome extends React.Component {
                 <h4>{this.props.elementz}</h4>
             </div>
         )
-
     }
 }
 

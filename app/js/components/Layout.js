@@ -1,8 +1,6 @@
 import React from 'react';
 import Button from './Button';
-import Timer from './Timer';
-import NameList from './NameList';
-
+import { Link } from 'react-router'
 
 export default class Layout extends React.Component {
     constructor() {
@@ -30,33 +28,20 @@ export default class Layout extends React.Component {
     render() {
         return (
             <div >
-                <h1> {this.state.fname} </h1>
-                <p>
-                    lorem ipsumz!2021!
-                </p>
-                <Button changeName={this.changeName.bind(this)} fname={this.state.fname} />
-                {this.state.isTimerMounted ?
-                    <div>
+                <header>
+                    <h1>Welcome to my site</h1>
+                    <p>im inside the header</p>
+                    <Link to="/timer">Timer</Link>
+                    <Link to="/namelist">Name List</Link>
+                </header>
 
-                        <Timer />
-                        <Timer />
-                    </div>
-                    : null
-                }
+                {this.props.children}
 
-                <button onClick={this.ToggleTimers.bind(this)}> Toggle Timers</button>
-
-                <NameList names={this.props.names} />
-
-                <H1styler>
-                    klasjd klajsd klajdlkasjd
-                    <Timer />
-                    {/* {this.props.children} */}
-                </H1styler>
+                <footer>
+                    <h5>im the footer </h5>
+                </footer>
             </div >
         )
-
-
     }
 
 }

@@ -1,39 +1,6 @@
 import React from 'react';
 import NameRow from './NameList/NameRow';
-
-// import Welcome from './Welcome';
-
-// export class NameList extends React.Component {
-
-//     nameMapper(nameArray) {
-//         return nameArray.map((name, i) =>
-//             <li key={i}> {name} </li>
-//         )
-//     }
-
-//     render() {
-//         const nameArray = [1, "axl2019!", "grey2012 (val christian grey caro)", "caro", "caro!", "val axl sy caro"]
-//         const elementz = <p>i am an element!</p>
-
-//         return (
-//             <div style={redbg}>
-//                 <h3>i am number {this.props.number}</h3>
-//                 <Welcome fname="wala lang A" lname="caro" number={this.props.number} elementz={elementz} />
-//                 <Welcome fname="valchris" lname="caro" number={this.props.number} elementz={elementz} />
-//                 <ul>
-//                     {this.nameMapper(nameArray)}
-//                 </ul>
-
-//             </div>
-//         )
-//     }
-// }
-
-// const redbg = {
-//     'backgroundColor': 'red',
-//     'fontSize': 20
-// };
-
+import names from '../../../mock-data';
 
 export default class NameList extends React.Component {
     constructor() {
@@ -48,7 +15,7 @@ export default class NameList extends React.Component {
 
     componentWillMount() {
         this.setState({
-            names: this.props.names,
+            names: names,
             filterText: ''
         })
     }
@@ -64,11 +31,6 @@ export default class NameList extends React.Component {
     }
 
     filterNames(event) {
-        // let newNames = this.state.names.filter((name) => {
-        //     let fullName = `${name.first_name} ${name.last_name}`
-        //     return fullName.toLowerCase().includes(event.target.value.toLowerCase())
-        // })
-
         this.setState({
             filterText: event.target.value
         })
@@ -84,7 +46,6 @@ export default class NameList extends React.Component {
                 return fullName.toLowerCase().includes(event.target.value.toLowerCase())
             })
         }
-
 
         return (
             <div>
@@ -113,16 +74,6 @@ export default class NameList extends React.Component {
 
                 Filter Names: <input type="text" onChange={this.filterNames} />
 
-                {/* <ul>
-                    {names.map((name) =>
-                        <li key={name.id}>
-                            <a href="#" onClick={this.handleClickName}>
-                                {name.first_name} {name.last_name} - {name.gender} - {name.email}
-                            </a>
-                        </li>
-                    )}
-                </ul> */}
-
                 <ul>
                     {names.map((name) =>
                         <NameRow key={name.id} name={name} handleClickName={this.handleClickName} />
@@ -131,8 +82,6 @@ export default class NameList extends React.Component {
 
 
             </div>
-
-
         )
     }
 }
