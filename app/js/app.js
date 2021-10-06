@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from './components/Layout';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+import { Router, Route, browserHistory, IndexRoute, Redirect } from 'react-router';
 import Timer from './components/Timer';
 import NameList from './components/NameList';
 import PageNotFound from './components/PageNotFound';
@@ -32,6 +32,8 @@ ReactDOM.render(
 				<Route path=":id" component={NameProfile} />
 			</Route>
 
+			<Redirect from="users" to="namelist" />
+			<Redirect from="user/:id" to="namelist/:id" />
 			<Route path="*" component={PageNotFound} />
 
 		</Route>
