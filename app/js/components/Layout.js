@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from './Button';
-import { Link } from 'react-router'
+import { Link, IndexLink } from 'react-router'
 
 export default class Layout extends React.Component {
     constructor() {
@@ -26,16 +26,23 @@ export default class Layout extends React.Component {
     }
 
     render() {
+        const style = {
+            backgroundColor: 'red',
+            // fontSize: '2em'
+        }
+
         return (
             <div >
                 <header>
-                    <h1>Welcome to my site</h1>
+                    <h1 style={style}>Welcome to my site</h1>
                     <p>im inside the header</p>
-                    <Link to="/">Home</Link>
+
+                    <IndexLink to="/" activeClassName="active">Home</IndexLink>
                     <span> | </span>
-                    <Link to="/timer">Timer</Link>
+                    <Link to="/timer" activeClassName="active">Timer</Link>
                     <span> | </span>
-                    <Link to="/namelist">Name List</Link>
+                    <Link to="/namelist" activeStyle={style}>Name List</Link>
+
                 </header>
 
                 {this.props.children}
