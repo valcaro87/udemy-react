@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './Button';
-import { Link, IndexLink } from 'react-router'
+import { Link, IndexLink } from 'react-router';
+import NavLinks from './NavLinks';
 
 export default class Layout extends React.Component {
     constructor() {
@@ -30,18 +31,18 @@ export default class Layout extends React.Component {
             backgroundColor: 'red',
             // fontSize: '2em'
         }
-
         return (
             <div >
                 <header>
                     <h1 style={style}>Welcome to my site</h1>
                     <p>im inside the header</p>
 
-                    <IndexLink to="/" activeClassName="active">Home</IndexLink>
+                    <NavLinks to="/" linkname="Home" />
                     <span> | </span>
-                    <Link to="/timer" activeClassName="active">Timer</Link>
+                    <NavLinks to="/timer" linkname="Timer" />
                     <span> | </span>
-                    <Link to="/namelist" activeStyle={style}>Name List</Link>
+                    <NavLinks to="/namelist" linkname="NameList" />
+
 
                 </header>
 
@@ -51,6 +52,7 @@ export default class Layout extends React.Component {
                     <h5>im the footer </h5>
                 </footer>
             </div >
+
         )
     }
 
