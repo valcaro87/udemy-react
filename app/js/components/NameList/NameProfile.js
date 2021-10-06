@@ -26,7 +26,7 @@ export default class NameProfile extends React.Component {
         if (user) {
             user =
                 <div>
-                    <p>Name: {user.first_name}</p>
+                    <p>Name: {user.first_name} {user.last_name}</p>
                     <p>Email: {user.email} </p>
                     <p>City: {user.city}</p>
                     <p>Catch Phrase: {user.catch_phrase}</p>
