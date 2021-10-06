@@ -12,5 +12,8 @@ module.exports = {
 				loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015'],
 			}
 		]
+	},
+	devServer: {
+		historyApiFallback: true
 	}
 }
