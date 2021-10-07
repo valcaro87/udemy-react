@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from './components/Layout';
 import { Router, Route, browserHistory, IndexRoute, Redirect } from 'react-router';
-import Timer from './components/Timer';
-import NameList from './components/NameList';
-import PageNotFound from './components/PageNotFound';
-import Home from './components/Home';
+import Timer from './components/Timer/Timer';
+import NameList from './components/NameList/NameList';
+import PageNotFound from './components/PageNotFound/PageNotFound';
+import Main from './components/Main/Main';
 import NameProfile from './components/NameList/NameProfile';
 
 
@@ -23,8 +23,8 @@ class App extends React.Component {
 ReactDOM.render(
 	<Router history={browserHistory}>
 		<Route path="/" component={Layout}>
-			<IndexRoute component={Home} />
-			<Route path="/" component={Home} />
+			<IndexRoute component={Main} />
+			<Route path="/" component={Main} />
 			<Route path="timer" component={Timer} />
 
 			<Route path="namelist">

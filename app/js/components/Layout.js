@@ -1,7 +1,7 @@
 import React from 'react';
-import Button from './Button';
-import { Link, IndexLink } from 'react-router';
-import NavLinks from './NavLinks';
+// import Button from './Button';
+import Header from './Header/Header';
+import Footer from './Footer/Footer';
 
 export default class Layout extends React.Component {
     constructor() {
@@ -27,31 +27,15 @@ export default class Layout extends React.Component {
     }
 
     render() {
-        const style = {
-            backgroundColor: 'red',
-            // fontSize: '2em'
-        }
+
         return (
-            <div >
-                <header>
-                    <h1 style={style}>Welcome to my site</h1>
-                    <p>im inside the header</p>
-
-                    <NavLinks to="/" linkname="Home" />
-                    <span> | </span>
-                    <NavLinks to="/timer" linkname="Timer" />
-                    <span> | </span>
-                    <NavLinks to="/namelist" linkname="NameList" />
-
-
-                </header>
+            <div>
+                <Header />
 
                 {this.props.children}
 
-                <footer>
-                    <h5>im the footer </h5>
-                </footer>
-            </div >
+                <Footer />
+            </div>
 
         )
     }
