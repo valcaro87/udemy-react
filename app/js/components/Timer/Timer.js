@@ -1,6 +1,6 @@
 import React from 'react';
-import TimerButton from './Timer/TimerButton';
-import { TimerHeader } from './Timer/TimerHeader';
+import TimerButton from './TimerButton';
+import { TimerHeader } from './TimerHeader';
 import { browserHistory } from 'react-router';
 
 export default class Timer extends React.Component {
