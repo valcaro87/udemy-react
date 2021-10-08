@@ -9,14 +9,14 @@ export default class NavLinks extends React.Component {
     }
 
     render() {
-        let { to, linkname } = this.props;
+        let { to, linkname, className } = this.props;
         if (to === '/') {
             return (
-                <IndexLink to={to} activeClassName="active">{linkname}</IndexLink>
+                <IndexLink className={className} to={to} activeClassName="active">{linkname}</IndexLink>
             )
         } else {
             return (
-                <Link to={to} activeClassName="active">{linkname}</Link>
+                <Link className={className} to={to} activeClassName="active">{linkname}</Link>
             )
         }
 

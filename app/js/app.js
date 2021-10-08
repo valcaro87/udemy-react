@@ -7,6 +7,8 @@ import NameList from './components/NameList/NameList';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import Main from './components/Main/Main';
 import NameProfile from './components/NameList/NameProfile';
+import ProductList from './components/Products/ProductList';
+import ProductProfile from './components/Products/ProductProfile';
 
 
 class App extends React.Component {
@@ -30,6 +32,11 @@ ReactDOM.render(
 			<Route path="namelist">
 				<IndexRoute path="namelist" component={NameList} />
 				<Route path=":id" component={NameProfile} />
+			</Route>
+
+			<Route path="products">
+				<IndexRoute component={ProductList} />
+				<Route path=":id" component={ProductProfile} />
 			</Route>
 
 			<Redirect from="users" to="namelist" />
