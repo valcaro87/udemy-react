@@ -22,6 +22,8 @@ export default class Header extends React.Component {
                     <NavLinks to="/timer" linkname="Timer" />
                     <span> | </span>
                     <NavLinks to="/namelist" linkname="NameList" />
+                    <span> | </span>
+                    <NavLinks to="/products" linkname="ProductList" />
                 </header>
             </div>
         )
