@@ -7,7 +7,7 @@ export default class ProductRow extends React.Component {
     }
 
     componentWillMount() {
-        let product_id = +this.props.params.id
+        let product_id = this.props.id || +this.props.params.id
         this.product = PRODUCTS.find((product) =>
             product.id === product_id
         )
@@ -18,7 +18,7 @@ export default class ProductRow extends React.Component {
         return (
             <div>
                 <h3>{product_name}</h3>
-                <span> <img src={image} width="50px" /></span>
+                <span> <img src={image} width="200px" /></span>
                 <h4>Has a wonderful {color}, with inspired {product_adjective} {product_material} properties, that cost ${price}...</h4>
                 <ul>
                     <li>Color: {color}</li>

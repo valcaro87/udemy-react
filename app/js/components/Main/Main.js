@@ -1,4 +1,7 @@
 import React from 'react';
+import ProductProfile from '../Products/ProductProfile';
+import PRODUCTS from '../Products/mock_products';
+import { Link } from 'react-router';
 
 export default class Main extends React.Component {
     constructor() {
@@ -6,16 +9,19 @@ export default class Main extends React.Component {
     }
 
     render() {
+        let randomProductId = Math.floor(Math.random() * PRODUCTS.length);
+
         return (
             <div>
-                <h2>lorem ipsum</h2>
-                <ul>
-                    <li>a</li>
-                    <li>ba</li>
-                    <li>d</li>
-                    <li>e</li>
+                <hr />
+                <h2>Featured Product</h2>
+                <div>
 
-                </ul>
+                    <ProductProfile id={randomProductId} />
+                    <Link to={`/products/${randomProductId}`}>
+                        Visit >>
+                    </Link>
+                </div>
             </div>
         )
     }

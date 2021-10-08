@@ -12,19 +12,13 @@ export default class Header extends React.Component {
             // fontSize: '2em'
         }
         return (
-            <div>
-                <header>
-                    <h1 style={style}>Welcome to my site</h1>
-                    <p>im inside the header</p>
-
-                    <NavLinks to="/" linkname="Home" />
-                    <span> | </span>
-                    <NavLinks to="/timer" linkname="Timer" />
-                    <span> | </span>
-                    <NavLinks to="/namelist" linkname="NameList" />
-                    <span> | </span>
-                    <NavLinks to="/products" linkname="ProductList" />
-                </header>
+            <div className="pure-menu pure-menu-horizontal">
+                <NavLinks className="pure-menu-heading pure-menu-link" to="/" linkname="Home" />
+                <ul className="pure-menu-list">
+                    <li className="pure-menu-item"><NavLinks className="pure-menu-link" to="/timer" linkname="Timer" /></li>
+                    <li className="pure-menu-item"><NavLinks className="pure-menu-link" to="/namelist" linkname="NameList" /></li>
+                    <li className="pure-menu-item"><NavLinks className="pure-menu-link" to="/products" linkname="ProductList" /></li>
+                </ul>
             </div>
         )
     }

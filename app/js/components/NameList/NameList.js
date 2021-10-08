@@ -51,36 +51,24 @@ export default class NameList extends React.Component {
             <div>
                 <h1>this is the namelist component</h1>
 
-                <p> Clicked Name: {this.state.event} </p>
+                {/* <p> Clicked Name: {this.state.event} </p> */}
 
-                <input
+                {/* <input
                     onChange={this.handleClickName}
                     onFocus={this.handleClickName}
                     onBlur={this.handleClickName}
                     onKeyPress={this.handleClickName}
                     type="text"
-                />
+                /> */}
 
-                <form onSubmit={this.handleClickName}>
-                    <input type="text" />
-                    <input type="submit" />
-                </form>
-
-                <br />
-                <br />
-                <div>
-                    {/* {JSON.stringify(this.state, null)} */}
-                </div>
+                {/* {JSON.stringify(this.state, null)} */}
 
                 Filter Names: <input type="text" onChange={this.filterNames} />
-
-                <ul>
+                <div class="pure-g">
                     {names.map((name) =>
                         <NameRow key={name.id} name={name} handleClickName={this.handleClickName} />
                     )}
-                </ul>
-
-
+                </div>
             </div>
         )
     }
