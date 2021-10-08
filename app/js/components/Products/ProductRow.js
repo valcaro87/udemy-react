@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import styles from './products.css'
 
 export default class ProductRow extends React.Component {
     constructor() {
@@ -11,7 +12,7 @@ export default class ProductRow extends React.Component {
         return (
             <div className="pure-u-1 pure-u-md-1-3">
                 <Link to={`/products/${id}`}>
-                    <div className="each-product">
+                    <div className={styles.each_product}>
                         <h3>{product_name}</h3>
 
                         <span> <img className="pure-img" src={image} width="300px" /></span>
