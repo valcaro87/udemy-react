@@ -1,29 +1,50 @@
 import React from 'react';
-
+// import Button from './Button';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 
-
 export default class Layout extends React.Component {
-	constructor() {
-		super();
-	}
+  constructor() {
+    super();
+    this.state = {
+      fname: 'chris',
+      lname: 'caro',
+      isTimerMounted: true
+    }
+  }
 
+  changeName() {
+    console.log(this);
+    this.setState({
+      fname: 'val'
+    })
+  }
 
-	render() {
-		const style = {
-			margin: '20px'
-		}
-		return (
-			<div>	
+  ToggleTimers() {
+    this.setState(prevState => ({
+      isTimerMounted: !prevState.isTimerMounted
+    }))
+  }
 
-				<Header />
+  render() {
 
-				{this.props.children}
-			
-				<Footer />
+    return (
+      <div>
+        <Header />
 
-			</div>
-		)
-	}
+        {this.props.children}
+
+        <Footer />
+      </div>
+
+    )
+  }
+
+}
+
+const H1styler = (props) => {
+  const bluebackground = {
+    backgroundColor: "blue"
+  }
+  return <h1 style={bluebackground}>{props.children}</h1>
 }
