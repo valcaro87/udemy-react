@@ -17,7 +17,7 @@ export default class Header extends React.Component {
         <ul className="pure-menu-list">
           <li className="pure-menu-item"><NavLinks className="pure-menu-link" to="/timer" linkname="Timer" /></li>
           <li className="pure-menu-item"><NavLinks className="pure-menu-link" to="/namelist" linkname="NameList" /></li>
-          <li className="pure-menu-item"><NavLinks className="pure-menu-link" to="/products" linkname="ProductList" /></li>
+          <li className="pure-menu-item"><NavLinks className="pure-menu-link" to="/productlist" linkname="ProductList" /></li>
         </ul>
       </div>
     )

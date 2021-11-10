@@ -1,5 +1,5 @@
 import React from 'react';
-import PRODUCTS from './mock_products';
+import PRODUCTS from '../../../../mock-products';
 
 export default class ProductRow extends React.Component {
   constructor() {
@@ -14,10 +14,10 @@ export default class ProductRow extends React.Component {
   }
 
   render() {
-    let { product_name, color, price, product_material, product_adjective, text, image } = this.product
+    let { productName, color, price, product_material, product_adjective, text, image } = this.product
     return (
       <div>
-        <h3>{product_name}</h3>
+        <h3>{productName}</h3>
         <span> <img src={image} width="200px" /></span>
         <h4>Has a wonderful {color}, with inspired {product_adjective} {product_material} properties, that cost ${price}...</h4>
         <ul>

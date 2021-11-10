@@ -34,7 +34,7 @@ ReactDOM.render(
         <Route path=":id" component={NameProfile} />
       </Route>
 
-      <Route path="products">
+      <Route path="productlist">
         <IndexRoute component={ProductList} />
         <Route path=":id" component={ProductProfile} />
       </Route>
