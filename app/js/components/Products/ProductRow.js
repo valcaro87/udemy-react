@@ -1,35 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router';
-import styles from './products.css'
+import styles from './products.css';
 
 export default class ProductRow extends React.Component {
-    constructor() {
-        super();
-    }
+	constructor() {
+		super();
+	}
 
-    render() {
-        const { id, product_name, product_material, product_adjective, color, price, text, image } = this.props.product
-        return (
-            <div className="pure-u-1 pure-u-md-1-3">
-                <Link to={`/products/${id}`}>
-                    <div className={styles.each_product}>
-                        <h3>{product_name}</h3>
-
-                        <span> <img className="pure-img" src={image} width="300px" /></span>
-
-                        <ul>
-                            <li>Color: {color}</li>
-                            <li>Price: $ {price}</li>
-                            {/* <li>Adjective: {product_adjective}</li>
-                            <li>Material: {product_material}</li>
-                            <li>Description: {text}</li> */}
-                        </ul>
-                    </div>
-                </Link>
-            </div>
-
-        )
-    }
-
-
+	render() {
+		
+		const { id, productName, productAdjective, price, image } = this.props.product
+		return (
+			<div className={`pure-u-1 pure-u-md-1-2 ${styles.product}`}>
+				<h3><Link to={`/products/${id}`}>{productName}</Link></h3>
+				<ul>
+					<li><img className={`pure-img ${styles.thumb}`} src={image}/></li>
+					<li>{productAdjective}</li>
+					<li>${price}</li>
+				</ul>
+			</div>
+		)
+	}
 }

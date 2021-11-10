@@ -1,18 +1,13 @@
 import React from 'react';
 
 export default class TimerButton extends React.Component {
-    constructor() {
-        super()
-    }
+	constructor() {
+		super()
+	}
 
-    render() {
-        return (
-            <div>
-                <button onClick={this.props.handleClick}>
-                    {this.props.isStarted ? 'Stop' : 'Start'}
-                </button>
-            </div>
-        )
-    }
-
+	render() {
+		return (
+			<button onClick={this.props.handleClick}>{this.props.isStarted ? 'Stop timer' : 'Start timer'}</button>
+		)
+	}
 }

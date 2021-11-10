@@ -1,45 +1,35 @@
 import React from 'react';
-import faker from 'faker';
+
+import styles from './products.css'
+
 import ProductRow from './ProductRow';
-import PRODUCTS from './mock_products';
+
+import PRODUCTS from '../../../../mock-products';
+
 
 export default class ProductList extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            products: []
-        }
-    }
+	constructor() {
+		super();
+		this.state = {
+			products: []
+		}
+	}
 
-    componentWillMount() {
-        this.setState({
-            products: PRODUCTS
-        })
-    }
+	componentWillMount() {
+		this.setState({
+			products: PRODUCTS
+		})
+	}
 
-    render() {
-        // let products = []
-        // for (let i = 1; i < 26; i += 1) {
-        //     let product = {
-        //         product_name: faker.commerce.productName(),
-        //         color: faker.commerce.color(),
-        //         price: faker.commerce.price(),
-        //         product_adjective: faker.commerce.productAdjective(),
-        //         product_material: faker.commerce.productMaterial(),
-        //         id: i
-        //     }
-        //     products.push(product);
-        // }
-        //console.log(products);
-        // let fakeName = faker.name.findName()
+	render() {
 
-        let { products } = this.state;
-        return (
-            <div className="pure-g">
-                {products.map((product) =>
-                    <ProductRow key={product.id} product={product} />
-                )}
-            </div >
-        )
-    }
+		let { products } = this.state;
+		return (
+			<div className={`pure-g ${styles.products}`}>
+				{products.map((product) => 
+					<ProductRow key={product.id} product={product} />
+				)}
+			</div>
+		)
+	}
 }

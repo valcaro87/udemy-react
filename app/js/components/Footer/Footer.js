@@ -1,10 +1,5 @@
 import React from 'react';
 
-const Footer = () =>
-    <div>
-        <footer>
-            <h5>im the footer </h5>
-        </footer>
-    </div>
+const Footer = () => <h5>I'm the footer :D!</h5>
 
 export default Footer;
