@@ -1,5 +1,6 @@
 import React from 'react';
 import { browserHistory, Link } from 'react-router';
+import { namelist } from './namelist.css';
 import names from '../../../../mock-data';
 
 export default class NameProfile extends React.Component {

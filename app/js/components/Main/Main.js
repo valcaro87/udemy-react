@@ -2,6 +2,7 @@ import React from 'react';
 import ProductProfile from '../Products/ProductProfile';
 import PRODUCTS from '../Products/mock_products';
 import { Link } from 'react-router';
+import styles from './main.css';
 
 export default class Main extends React.Component {
   constructor() {
@@ -18,7 +19,7 @@ export default class Main extends React.Component {
         <div>
 
           <ProductProfile id={randomProductId} />
-          <Link to={`/products/${randomProductId}`}>
+          <Link to={`/productlist/${randomProductId}`}>
                         Visit >>
           </Link>
         </div>

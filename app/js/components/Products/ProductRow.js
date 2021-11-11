@@ -9,10 +9,10 @@ export default class ProductRow extends React.Component {
 
   render() {
 
-    const { id, productName, productAdjective, price, image } = this.props.product
+    const { id, product_name, productAdjective, price, image } = this.props.product
     return (
       <div className={`pure-u-1 pure-u-md-1-2 ${styles.product}`}>
-        <h3><Link to={`/productlist/${id}`}>{productName}</Link></h3>
+        <h3><Link to={`/productlist/${id}`}>{product_name}</Link></h3>
         <ul>
           <li><img className={`pure-img ${styles.thumb}`} src={image} /></li>
           <li>{productAdjective}</li>
