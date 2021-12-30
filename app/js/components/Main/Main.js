@@ -11,16 +11,25 @@ export default class Main extends React.Component {
 
   render() {
     let randomProductId = Math.floor(Math.random() * PRODUCTS.length);
+    const { background, header, divider } = styles;
 
     return (
       <div>
-        <hr />
-        <h2>Featured Product</h2>
+        <div className={background} />
+        {/* <div className={divider} /> */}
         <div>
 
-          <ProductProfile id={randomProductId} />
+          <h2>Featured Product</h2>
+
+          <div className={header} >
+
+            <ProductProfile id={randomProductId} />
+
+
+          </div>
+          {/* <div className={divider} /> */}
           <Link to={`/productlist/${randomProductId}`}>
-                        Visit >>
+                          Visit >>
           </Link>
         </div>
       </div>
