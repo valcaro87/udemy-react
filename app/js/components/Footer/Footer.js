@@ -1,5 +1,22 @@
 import React from 'react';
+import styles from '../Main/main.css';
 
-const Footer = () => <h5>I'm the footer :D!</h5>
+export default class Footer extends React.Component {
+  constructor() {
+    super();
+  }
 
-export default Footer;
+  render() {
+    const { footer } = styles;
+
+    return (
+      <div>
+        <hr />
+        <div className={footer}>
+          i'm the footer
+        </div>
+      </div>
+    )
+  }
+
+}
