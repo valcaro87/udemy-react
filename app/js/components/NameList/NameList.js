@@ -1,59 +1,66 @@
 import React from 'react';
 import NameRow from './NameRow';
 import names from '../../../../mock-data';
+// import store from '../../app';
 
 export default class NameList extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            names: [],
-            event: 'no event detected'
-        }
-        this.handleClickName = this.handleClickName.bind(this);
-        this.filterNames = this.filterNames.bind(this);
+  constructor() {
+    super();
+    this.state = {
+      names: [],
+      event: 'no event detected'
+    }
+    this.handleClickName = this.handleClickName.bind(this);
+    this.filterNames = this.filterNames.bind(this);
+  }
+
+  componentWillMount() {
+
+    // console.log(store);
+    // store.dispatch({ type: 'GET_NAMES', names: names })
+    // console.log(store.getState());
+    this.setState({
+      names: names,
+      // names: store.getState().names,
+      filterText: ''
+    })
+    console.log(this.props);
+  }
+
+  handleClickName(event) {
+    event.preventDefault();
+    // console.log(event.target.text);
+    this.setState({
+      // event: event.target.value
+      event: event.target.text
+      //event: event.type
+    })
+  }
+
+  filterNames(event) {
+    this.setState({
+      filterText: event.target.value
+    })
+  }
+
+  render() {
+    let { names } = this.state
+    let { filterText } = this.state;
+
+    if (filterText.length >= 3) {
+      names = names.filter((name) => {
+        let fullName = `${name.first_name} ${name.last_name}`
+        return fullName.toLowerCase().includes(event.target.value.toLowerCase())
+      })
     }
 
-    componentWillMount() {
-        this.setState({
-            names: names,
-            filterText: ''
-        })
-    }
+    return (
+      <div>
+        <h1>this is the namelist component</h1>
 
-    handleClickName(event) {
-        event.preventDefault();
-        console.log(event.target.text);
-        this.setState({
-            // event: event.target.value
-            event: event.target.text
-            //event: event.type
-        })
-    }
+        {/* <p> Clicked Name: {this.state.event} </p> */}
 
-    filterNames(event) {
-        this.setState({
-            filterText: event.target.value
-        })
-    }
-
-    render() {
-        let { names } = this.state
-        let { filterText } = this.state;
-
-        if (filterText.length >= 3) {
-            names = names.filter((name) => {
-                let fullName = `${name.first_name} ${name.last_name}`
-                return fullName.toLowerCase().includes(event.target.value.toLowerCase())
-            })
-        }
-
-        return (
-            <div>
-                <h1>this is the namelist component</h1>
-
-                {/* <p> Clicked Name: {this.state.event} </p> */}
-
-                {/* <input
+        {/* <input
                     onChange={this.handleClickName}
                     onFocus={this.handleClickName}
                     onBlur={this.handleClickName}
@@ -61,15 +68,15 @@ export default class NameList extends React.Component {
                     type="text"
                 /> */}
 
-                {/* {JSON.stringify(this.state, null)} */}
+        {/* {JSON.stringify(this.state, null)} */}
 
-                Filter Names: <input type="text" onChange={this.filterNames} />
-                <div class="pure-g">
-                    {names.map((name) =>
-                        <NameRow key={name.id} name={name} handleClickName={this.handleClickName} />
-                    )}
-                </div>
-            </div>
-        )
-    }
+        Filter Names: <input type="text" onChange={this.filterNames} />
+        <div class="pure-g">
+          {names.map((name) =>
+            <NameRow key={name.id} name={name} handleClickName={this.handleClickName} />
+          )}
+        </div>
+      </div>
+    )
+  }
 }

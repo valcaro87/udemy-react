@@ -2,13 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from './components/Layout';
 import { Router, Route, browserHistory, IndexRoute, Redirect } from 'react-router';
+
+
+
+import { Provider } from 'react-redux';
+import store from './store';
+// console.log(store)
+
+
 import Timer from './components/Timer/Timer';
-import NameList from './components/NameList/NameList';
+
+// import NameList from './components/NameList/NameList';
+import NameListContainer from './components/NameList/NameList';
+
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import Main from './components/Main/Main';
 import NameProfile from './components/NameList/NameProfile';
 import ProductList from './components/Products/ProductList';
 import ProductProfile from './components/Products/ProductProfile';
+
+
+
 
 
 class App extends React.Component {
@@ -23,27 +37,30 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-  <Router history={browserHistory}>
-    <Route path="/" component={Layout}>
-      <IndexRoute component={Main} />
-      <Route path="/" component={Main} />
-      <Route path="timer" component={Timer} />
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path="/" component={Layout}>
 
-      <Route path="namelist">
-        <IndexRoute path="namelist" component={NameList} />
-        <Route path=":id" component={NameProfile} />
+        <IndexRoute component={Main} />
+        <Route path="/" component={Main} />
+        <Route path="timer" component={Timer} />
+
+        <Route path="namelist">
+          <IndexRoute path="namelist" component={NameListContainer} />
+          <Route path=":id" component={NameProfile} />
+        </Route>
+
+        <Route path="productlist">
+          <IndexRoute component={ProductList} />
+          <Route path=":id" component={ProductProfile} />
+        </Route>
+
+        <Redirect from="users" to="namelist" />
+        <Redirect from="user/:id" to="namelist/:id" />
+        <Route path="*" component={PageNotFound} />
+
       </Route>
-
-      <Route path="productlist">
-        <IndexRoute component={ProductList} />
-        <Route path=":id" component={ProductProfile} />
-      </Route>
-
-      <Redirect from="users" to="namelist" />
-      <Redirect from="user/:id" to="namelist/:id" />
-      <Route path="*" component={PageNotFound} />
-
-    </Route>
-  </Router>,
+    </Router>
+  </Provider>,
   document.getElementById('app')
 );

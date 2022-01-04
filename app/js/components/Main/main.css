@@ -23,3 +23,7 @@
 		flex-flow: column nowrap;
 	}
 }
+
+.footer {
+  background: #a74a1b;
+}
